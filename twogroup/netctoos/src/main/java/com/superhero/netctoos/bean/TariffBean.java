@@ -44,7 +44,7 @@ public class TariffBean implements Serializable {
 	@Column(name = "tariff_type")
 	private int tariffType;
 	/** 基本时长 */
-	@Column(name = "time_lengh")
+	@Column(name = "time_length")
 	private double timeLengh;
 	/** 基本费用 */
 	@Column(name = "basic_cost")
