@@ -13,5 +13,5 @@ public interface ILogdailyQueryService {
 	 * @param endTime 结束时间
 	 * @return 操作日志集合
 	 */
-	PageBean getLogDailyByTime(Date startTime,Date endTime);
+	PageBean getLogDailyByTime(Date startTime,Date endTime,PageBean page);
 }

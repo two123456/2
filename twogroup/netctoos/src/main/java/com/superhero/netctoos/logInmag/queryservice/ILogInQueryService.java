@@ -13,5 +13,5 @@ public interface ILogInQueryService {
    * @param endTime 结束时间
    * @return 登录日志集合
    */
-	PageBean getLogInBeanByTime(Date startTime,Date endTime);
+	PageBean getLogInBeanByTime(Date startTime,Date endTime,PageBean page);
 }
