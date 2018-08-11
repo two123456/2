@@ -1,19 +1,16 @@
-package com.superhero.netctoos.accountbillmag.dao;
+package com.superhero.netctoos.accountbillmag.mapper;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Update;
+
 import com.superhero.netctoos.bean.AccountBillBean;
 import com.superhero.netctoos.bean.PageBean;
 
-/***
- * 账单持久层
- * 
- * @author wwv
- *
- */
-public interface IAccountBillDao {
+public interface AccountBillMapper {
 
 	/**
 	 * 根据月份和账务账号查询账务账单费用
