@@ -87,11 +87,13 @@
 									</a>
 									<dl class="layui-nav-child layui-nav-child">
 										<dd>
-											<a href="javascript:;">登陆服务日志</a>
+											<a data-url="/netctoos/netctoosmag/log/logIn_table" data-id="logIn" data-title="登陆服务日志" href="#" class="site-demo-active" data-type="tabAdd">登陆服务日志</a>
+
 
 										</dd>
 										<dd>
-											<a href="javascript:;">操作服务日志</a>
+											<a data-url="/netctoos/netctoosmag/log/logOpretion_table" data-id="logDaily" data-title="操作服务日志" href="#" class="site-demo-active" data-type="tabAdd">操作服务日志</a>
+
 										</dd>
 
 									</dl>
