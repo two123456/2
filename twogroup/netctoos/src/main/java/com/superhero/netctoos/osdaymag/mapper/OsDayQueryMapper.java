@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -22,20 +23,20 @@ public interface OsDayQueryMapper {
 	 */
 	@Select("<script>"+ "select count(*) from t_osday osd left join t_os os on os.os_account=osd.os_account\r\n" + 
 			"left JOIN t_account_info aci on aci.id=os.fk_account_id\r\n" + 
-			"AND osd.os_account = params.osAccount" +
+			"AND osd.os_account = aci.account" +
 			"		<where>" + 
 			"			<if test='params.osAccount != null and params.osAccount !=\"\"'>" + 
-			"				and os_account like concat(#{params.osAccount},'%')" + 
+			"				and osd.os_account like concat(#{params.osAccount},'%')" + 
 			"			</if>" + 
 			"			<if test='params.startTime != null and params.startTime !=\"\"'>" + 
-			"				and use_time >= params.startTime ,'%')" + 
+			"				and osd.use_time &gt;= #{params.startTime} " + 
 			"			</if>" + 
 			"			<if test='params.endTime != null and params.endTime !=\"\"'>" + 
-			"				and use_time >= params.endTime ,'%')" + 
+			"				and osd.use_time &lt;= #{params.endTime} " + 
 			"			</if>" + 
 			"		</where>" + 
 	 "</script>")
-	int countOsDayQueryByParams(Map params);
+	int countOsDayQueryByParams(@Param("params")Map params);
 	/***
 	 * 根据账务账号，业务账号，日期查询账务账单
 	 * @param params
@@ -45,23 +46,23 @@ public interface OsDayQueryMapper {
 		@Result(property="cost",column="cost",javaType=double.class),
 		@Result(property="useTime",column="use_time",javaType=Date.class),
 		@Result(property="serverIp",column="server_ip",javaType=String.class),
-		@Result(property="validTime",column="valid_time",javaType=Date.class),
+		@Result(property="validTime",column="valid_time",javaType=double.class),
 		@Result(property="osAccount",column="os_account",javaType=String.class)
 	})
-	@Select("<script>"+ "select osd.id as id,osd.cost as cost,osd.user_time as user_time,osd.server_ip as server_ip,osd.valid_time as valid_time,osd.os_account as os_account from t_osday osd left join t_os os on os.os_account=osd.os_account\r\n" + 
+	@Select("<script>"+ "select osd.id as id,osd.cost as cost,osd.use_time as use_time,osd.server_ip as server_ip,osd.valid_time as valid_time,osd.os_account as os_account from t_osday osd left join t_os os on os.os_account=osd.os_account\r\n" + 
 			"left JOIN t_account_info aci on aci.id=os.fk_account_id\r\n" + 
-			"AND osd.os_account = params.osAccount" +
+			"AND osd.os_account = aci.account" +
 			"		<where>" + 
 			"			<if test='params.osAccount != null and params.osAccount !=\"\"'>" + 
-			"				and os_account like concat(#{params.osAccount},'%')" + 
+			"				and osd.os_account like concat(#{params.osAccount},'%')" + 
 			"			</if>" + 
 			"			<if test='params.startTime != null and params.startTime !=\"\"'>" + 
-			"				and use_time >= params.startTime ,'%')" + 
+			"				and osd.use_time &gt;= #{params.startTime} " + 
 			"			</if>" + 
 			"			<if test='params.endTime != null and params.endTime !=\"\"'>" + 
-			"				and use_time >= params.endTime ,'%')" + 
+			"				and osd.use_time &lt;= #{params.endTime} " + 
 			"			</if>" + 
-			"		</where>" + 
+			"		</where> limit #{params.index},#{params.rows}" + 
 	 "</script>")
-	List<OsdayBean> listOsDayQueryByParams(Map params);
+	List<OsdayBean> listOsDayQueryByParams(@Param("params")Map params);
 }

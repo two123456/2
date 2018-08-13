@@ -131,7 +131,7 @@
 									</a>
 								</dd>
 								<dd>
-									<a href="">
+									<a data-url="tariff/Rates" data-id="8" data-title="资费管理" href="#" class="site-demo-active" data-type="tabAdd">
 										资费管理系统
 									</a>
 								</dd>

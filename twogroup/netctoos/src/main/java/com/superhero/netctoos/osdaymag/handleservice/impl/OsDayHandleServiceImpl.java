@@ -10,7 +10,7 @@ import com.superhero.netctoos.osdaymag.handleservice.IOsDayHandleService;
 import com.superhero.netctoos.osdaymag.repository.OsDayHandleRepository;
 
 /***
- * 按天查询账务账单写持久层
+ * 按天查询账务账单写持久层（写）
  * @author wyr
  *
  */
