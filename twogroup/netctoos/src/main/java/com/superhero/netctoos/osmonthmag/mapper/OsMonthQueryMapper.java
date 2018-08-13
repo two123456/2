@@ -28,8 +28,8 @@ public interface OsMonthQueryMapper {
 			"			<if test='params.osAccount != null and params.osAccount !=\"\"'>" + 
 			"				and osm.os_account like concat(#{params.osAccount},'%')" + 
 			"			</if>" + 
-			"			<if test='params.Account != null and params.Account !=\"\"'>" + 
-			"				and osm.account = #{params.Account}" + 
+			"			<if test='params.account != null and params.account !=\"\"'>" + 
+			"				and osm.account = #{params.account}" + 
 			"			</if>" + 
 			"			<if test='params.startTime != null and params.startTime !=\"\"'>" + 
 			"				and osm.use_time &gt;= #{params.startTime} " + 
@@ -45,15 +45,8 @@ public interface OsMonthQueryMapper {
 	 * @param params
 	 * @return
 	 */
-	@Results({@Result(id=true,property="id",column="id",javaType=Long.class),
-		@Result(property="cost",column="cost",javaType=double.class),
-		@Result(property="useTime",column="use_time",javaType=Date.class),
-		@Result(property="serverIp",column="server_ip",javaType=String.class),
-		@Result(property="validTime",column="valid_time",javaType=double.class),
-		@Result(property="osAccount",column="os_account",javaType=String.class),
-		@Result(property="Account",column="account",javaType=String.class)
-	})
-	@Select("<script>"+ "select osm.id as id,osm.cost as cost,osm.use_time as user_time,osm.server_ip as server_ip,osm.valid_time as valid_time,osm.os_account as os_account,osm.account account from t_osmonth osm " +
+
+	@Select("<script>"+ "select osm.id as id,osm.cost as cost,osm.use_time as useTime,osm.server_ip as serverIp,osm.valid_time as validTime,osm.os_account as osAccount,osm.account as account,tariff_combo as tariffCombo from t_osmonth osm " +
 			"		<where>" + 
 			"			<if test='params.osAccount != null and params.osAccount !=\"\"'>" + 
 			"				and osm.os_account like concat(#{params.osAccount},'%')" + 

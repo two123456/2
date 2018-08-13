@@ -29,7 +29,8 @@ public class OsMonthQueryImplTest {
 		PageBean page = new PageBean(1, 2);
 		Map<String, Object> map = new HashMap<String,Object>();
 		map.put("osAccount", "张");
-		map.put("Account", "张三");
+		map.put("account", "张三");
+		map.put("month", "2018-08-13");
 		PageBean bean = osMonthQueryServiceImpl.getPageBeanByAccountAndMonth(page, map);
 		System.out.println(bean.getData());
 	}

@@ -126,7 +126,7 @@
 									</a>
 								</dd>
 								<dd>
-									<a href="">
+									<a data-url="bills/Bill" data-id="9" data-title="账单查询" href="#" class="site-demo-active" data-type="tabAdd">
 										账单查询系统
 									</a>
 								</dd>

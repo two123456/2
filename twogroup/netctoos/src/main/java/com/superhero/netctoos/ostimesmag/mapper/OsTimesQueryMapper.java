@@ -48,7 +48,8 @@ public interface OsTimesQueryMapper {
 		@Result(property="validTime",column="valid_time",javaType=double.class),
 		@Result(property="osAccount",column="os_account",javaType=String.class),
 		@Result(property="enterTime",column="enter_time",javaType=Date.class),
-		@Result(property="outTime",column="out_time",javaType=Date.class)
+		@Result(property="outTime",column="out_time",javaType=Date.class),
+		@Result(property="tariffCombo",column="tariff_combo",javaType=String.class)
 	})
 	@Select("<script>"+ "select * from t_ostimes  " +
 			"		<where>" + 
