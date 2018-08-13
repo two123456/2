@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+ "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 
-	<head>
+	<head> 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>前台日志系统</title>
-		
 		<link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
 		<link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
 		<script src="/netctoos/static/js/polyfill.min.js"></script>
@@ -20,6 +20,9 @@
 		<script src="/netctoos/static/layui/layui.js"></script>
 		
 		<link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
+	
+		
+		
 	
 	 <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 	
@@ -38,10 +41,19 @@
 						</div>
 						<div class="layui-card-body">
 							<table id="demo_hash" lay-filter="test"></table>
-							<script type="text/html" id="barDemo_hash">
-								<a class="layui-btn layui-btn-xs" lay-event="detail" id="show">查看</a>
-								
-							</script>
+														<table class="layui-table" lay-data="{width: 1000, height:332, url:'/netctoos/logIn/write', page:true, id:'idTest',method:'post',limit:5}" lay-filter="demo" id="demo_hash" >
+  <thead>
+    <tr>
+      
+      <th lay-data="{field:'id',style='display:none'}" >ID</th>
+      <th lay-data="{field:'logName'}" >管理员</th>
+      <th lay-data="{field:'logTime',  sort: true ,templet:'#optTime'} "  >操作时间</th>
+      <th lay-data="{field:'serverIp'} "  >IP</th>
+        <th lay-data="{field:'enter' ,templet:'#titleTpl'} " >操作内容</th>
+          
+    </tr>
+  </thead>
+</table>
 						</div>
 					</div>
 				</div>
@@ -50,15 +62,38 @@
 	</div>
 
 </html>
+<script type="text/javascript">
+	Date.prototype.Format = function(fmt)   
+		{ //author: meizz   
+		var o = {   
+		 "M+" : this.getMonth()+1,                 //月份   
+		 "d+" : this.getDate(),                    //日   
+		 "h+" : this.getHours(),                   //小时   
+		 "m+" : this.getMinutes(),                 //分   
+		 "s+" : this.getSeconds(),                 //秒   
+		 "q+" : Math.floor((this.getMonth()+3)/3),   
+		 "S"  : this.getMilliseconds()             //毫秒   
+		};   
+		if(/(y+)/.test(fmt))   
+		 fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+		for(var k in o)   
+		 if(new RegExp("("+ k +")").test(fmt))   
+		fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+		return fmt;   
+		} 
+		 
+	</script>
 
+	<script id="optTime" type="text/html">
+    	{{#   
+    	var date = new Date();
+    	date.setTime(d.logTime);
+    	return date.Format("yyyy-MM-dd"); 
+    	}} 
+    </script>
 <script type="text/html" id="search_tpl_hash">
 	<form class="layui-form" action="">
-		<div class="layui-form-item">
-			<label class="layui-form-label">用户名</label>
-			<div class="layui-input-block">
-				<input type="text" name="userName" placeholder="请输入用户名.." autocomplete="off" class="layui-input">
-			</div>
-		</div>
+	
 
 		<div class="layui-inline">
       <label class="layui-form-label">起始日期</label>
@@ -84,6 +119,9 @@
 </script>
 
 <script>
+
+
+
 layui.use('laydate', function(){
 	  var laydate = layui.laydate;
 	  
@@ -95,76 +133,47 @@ layui.use('laydate', function(){
 		    elem: '#test1-1'
 		  });
 });
-	layui.config({
-		base: '/src/js/'
-	}).use(['jquery', 'mockjs', 'table', 'sidebar', 'form', 'layer'], function() {
-		var $ = layui.jquery,
-			layer = layui.layer,
-			table = layui.table,
-			sidebar = layui.sidebar,
-			form = layui.form;
-		// 注入mock
-		layui.mockjs.inject({
-			'POST /demo/table/user': {
-				code: 0,
-				msg: "xxx",
-				count: 1000,
-				'data|20': [{
-					'id|+1': 1,
-					userName: '@name',
-					
-					optDate: '@csentence',
-					optModule: '@integer',
-					optInfo: '@integer'
-				
-				}]
-			}
-		});
-		//第一个实例
-		table.render({
-			method: 'post',
-			// size: 'sm',
-			limit: 10,
-			elem: '#demo_hash',
-			height: 'full-235',
-			url: '/demo/table/user', //数据接口
-			page: true, //开启分页
-			cols: [
-				[ //表头
-					{
-						field: 'id',
-						title: 'ID',
-						
-						style:'display:none;'
-						
-					}, {
-						field: 'userName',
-						title: '管理员',
-						width: 253
-					}, {
-						field: 'optDate',
-						title: '操作时间',
-						width: 253,
-						sort: true
-					}, {
-						field: 'optModule',
-						title: '操作模块',
-						width: 253
-					}, {
-						field: 'optInfo',
-						title: '操作内容',
-						width: 253
-					},  {
-						field: 'optData',
-						fixed: 'right',
-						title: '操作数据',
-						width: 180,
-						align: 'center',
-						toolbar: '#barDemo_hash'
-					}
-				]
-			]
-		});
+layui.use('table', function(){
+
+	
+	// 注入mock
+
+	  var table = layui.table;
+	  table.on('tool(demo)', function(obj){
+		    var data = obj.data;
+		    if(obj.event === 'edit'){
+		    	 layer.open({
+		   		  type: 2,
+		   		  area: ['700px', '450px'],
+		   		  fixed: false, //不固定
+		   		  maxmin: true,
+		   		  content: ''
+		   		});
+
+
+		    } 
+		  });
+		  var $ = layui.$, active = {
+			  	    reload: function(){
+			  	      var demoReload = $('#userName');
+			  	      var startDate = $('#test1');
+			  	      var endDate =  $('#test1-1');
+			  	      
+			  	      table.reload('demo_hash', {
+			  	        where: {
+			  	            keyword:{ 
+			  	            	userName:demoReload.val(),
+			  	            	startDate:startDate.val(),
+			  	            	endDate:endDate.val()
+			  	            
+			  	            } 
+			  	          
+			  	        }
+			  	      });
+			  	    }
+			  	  };
+		  
+
 		$('table.layui-table thead tr th:eq(0)').addClass('layui-hide');
 
 		//监听工具条
@@ -180,7 +189,9 @@ layui.use('laydate', function(){
 				});
 			}
 		});
+		
 
+		
 		$('#search_hash').on('click', function() {
 			var that = this;
 			// console.log($('#search_tpl_hash').html());
@@ -208,10 +219,25 @@ layui.use('laydate', function(){
 					});
 				}
 			});
+	
 		});
-	});
-</script>
+		 $('.demoTable .layui-btn').on('click', function(){
+			    var type = $(this).data('type');
+			    active[type] ? active[type].call(this) : '';
+			  });
+		
+	}); 
 
+</script>
+<script type="text/html" id="titleTpl">
+        {{#  if(d.enter =='0'){ }}
+            登陆
+        {{#  } else if(d.enter =='1') { }}
+            退出
+        {{#  } else  { }}
+             未知
+        {{#  } }}
+</script>
 <style scoped>
 
 </style>
