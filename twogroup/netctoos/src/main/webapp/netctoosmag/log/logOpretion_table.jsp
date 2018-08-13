@@ -34,12 +34,26 @@
 							</a>
 						</div>
 						<div class="layui-card-body">
-							<table id="demo_hash" lay-filter="test"></table>
-							<script type="text/html" id="barDemo_hash">
-								<a class="layui-btn layui-btn-xs" lay-event="detail" id="show">查看</a>
-								
-							</script>
-						</div>
+							
+							<table class="layui-table" lay-data="{ height:332, url:'/netctoos/logDaily/write', page:true, id:'idTest',method:'post',limit:5}" lay-filter="demo" id="demo_hash" >
+  <thead>
+    <tr>
+      
+      <th lay-data="{field:'id',style='display:none'}" >ID</th>
+      <th lay-data="{field:'dailyName'}" >管理员</th>
+      <th lay-data="{field:'dailyTime',  sort: true ,templet:'#optTime'} "  >操作时间</th>
+      <th lay-data="{field:'dailyMod'} "  >操作模块</th>
+        <th lay-data="{field:'dailyType',templet:'#titleTpl' }"  >操作类型</th>
+          <th lay-data="{fixed: 'right',  align:'center', toolbar: '#barDemo_hash'}"></th>
+    </tr>
+  </thead>
+</table>
+  <script type="text/html" id="barDemo_hash">
+
+  <a class="layui-btn layui-btn-xs" lay-event="edit">查看</a>
+
+</script>
+													</div>
 					</div>
 				</div>
 			</div>
@@ -47,15 +61,39 @@
 	</div>
 
 </html>
+ <script type="text/javascript">
+	Date.prototype.Format = function(fmt)   
+		{ //author: meizz   
+		var o = {   
+		 "M+" : this.getMonth()+1,                 //月份   
+		 "d+" : this.getDate(),                    //日   
+		 "h+" : this.getHours(),                   //小时   
+		 "m+" : this.getMinutes(),                 //分   
+		 "s+" : this.getSeconds(),                 //秒   
+		 "q+" : Math.floor((this.getMonth()+3)/3),   
+		 "S"  : this.getMilliseconds()             //毫秒   
+		};   
+		if(/(y+)/.test(fmt))   
+		 fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+		for(var k in o)   
+		 if(new RegExp("("+ k +")").test(fmt))   
+		fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+		return fmt;   
+		} 
+		 
+	</script>
+	
+	<script id="optTime" type="text/html">
+    	{{#   
+    	var date = new Date();
+    	date.setTime(d.dailyTime);
+    	return date.Format("yyyy-MM-dd"); 
+    	}} 
+    </script>
 
 <script type="text/html" id="search_tpl_hash">
 	<form class="layui-form" action="">
-		<div class="layui-form-item">
-			<label class="layui-form-label">用户名</label>
-			<div class="layui-input-block">
-				<input type="text" name="userName" placeholder="请输入用户名.." autocomplete="off" class="layui-input">
-			</div>
-		</div>
+		
 
 		<div class="layui-inline">
       <label class="layui-form-label">起始日期</label>
@@ -92,73 +130,47 @@ layui.use('laydate', function(){
 		    elem: '#test1-1'
 		  });
 });
-	layui.config({
-		base: '/src/js/'
-	}).use(['jquery', 'mockjs', 'table', 'sidebar', 'form', 'layer'], function() {
-		var $ = layui.jquery,
-			layer = layui.layer,
-			table = layui.table,
-			sidebar = layui.sidebar,
-			form = layui.form;
-		// 注入mock
-		layui.mockjs.inject({
-			'POST /demo/table/user': {
-				code: 0,
-				msg: "xxx",
-				count: 1000,
-				'data|20': [{
-					'id|+1': 1,
-					userName: '@name',
-					
-					optDate: '@csentence',
-					ip: '@integer',
-					optInfo: '@integer'
-				
-				}]
-			}
-		});
-		//第一个实例
-		table.render({
-			method: 'post',
-			// size: 'sm',
-			limit: 10,
-			elem: '#demo_hash',
-			height: 'full-235',
-			url: '/demo/table/user', //数据接口
-			page: true, //开启分页
-			cols: [
-				[ //表头
-					{
-						field: 'id',
-						title: 'ID',
-						
-						style:'display:none;'
-						
-					}, {
-						field: 'userName',
-						title: '管理员',
-						width: 317
-					}, {
-						field: 'optDate',
-						title: '操作时间',
-						width: 317,
-						sort: true
-					}, {
-						field: 'ip',
-						title: 'IP',
-						width:317
-					}, {
-						field: 'optInfo',
-						title: '操作内容',
-						width: 317
-					}
-				]
-			]
-		});
-		$('table.layui-table thead tr th:eq(0)').addClass('layui-hide');
+
+
+layui.use('table', function(){
+	  var table = layui.table;
+	  table.on('tool(demo)', function(obj){
+		    var data = obj.data;
+		    if(obj.event === 'edit'){
+		    	 layer.open({
+		   		  type: 2,
+		   		  area: ['700px', '450px'],
+		   		  fixed: false, //不固定
+		   		  maxmin: true,
+		   		  content: ''
+		   		});
+
+
+		    } 
+		  });
+		  var $ = layui.$, active = {
+			  	    reload: function(){
+			  	      var demoReload = $('#userName');
+			  	      var startDate = $('#test1');
+			  	      var endDate =  $('#test1-1');
+			  	      
+			  	      table.reload('demo_hash', {
+			  	        where: {
+			  	            keyword:{ 
+			  	            	userName:demoReload.val(),
+			  	            	startDate:startDate.val(),
+			  	            	endDate:endDate.val()
+			  	            
+			  	            } 
+			  	          
+			  	        }
+			  	      });
+			  	    }
+			  	  };
+	
 
 		//监听工具条
-	
+ 	$('table.layui-table thead tr th:eq(0)').addClass('layui-hide'); 
 
 		$('#search_hash').on('click', function() {
 			var that = this;
@@ -188,9 +200,24 @@ layui.use('laydate', function(){
 				}
 			});
 		});
-	});
+		
+		 $('.demoTable .layui-btn').on('click', function(){
+			    var type = $(this).data('type');
+			    active[type] ? active[type].call(this) : '';
+			  });
+ 	}); 
 </script>
-
+<script type="text/html" id="titleTpl">
+        {{#  if(d.dailyType =='0'){ }}
+           新增
+        {{#  } else if(d.dailyType =='1') { }}
+            修改
+         {{#  } else if(d.dailyType =='2') { }}
+            删除
+		{{#  } else  { }}
+             查询
+        {{#  } }}
+</script>
 <style scoped>
 
 </style>

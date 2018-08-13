@@ -68,13 +68,13 @@
 							</a>
 							<dl class="layui-nav-child">
 								<dd>
-									<a href="javascript:;">
+									<a href="/userService/userServiceMian.jsp">
 										查看账单
 									</a>
 
 								</dd>
 								<dd>
-									<a href="javascript:;">
+									<a href="/userService/userServiceUpdate.jsp">
 										修改个人信息</a>
 								</dd>
 
