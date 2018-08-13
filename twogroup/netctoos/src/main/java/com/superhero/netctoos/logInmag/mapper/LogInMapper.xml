@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，主要作用：分类，保证Sql节点唯一化 -->
+<mapper namespace="com.superhero.netctoos.logInmag.mapper.LogInMapper">
+
+<resultMap type="LogInBean" id="logInMap">
+		<id property="id" column="id" javaType="long" />
+		<result property="logName" column="log_name"
+			javaType="string" />
+		<result property="logTime" column="log_time" javaType="date" />
+	<result property="serverIp" column="server_ip"/>
+	<result property="enter" column="enter"/>
+		</resultMap>
+		
+
+
+	<select id="countLogIn" resultType="int">
+		select count(*) from t_log_in
+		<include refid="commonSQL"></include>
+	</select>
+	
+	
+	<select id="getLogInBeanByStartTimeAndEndTime" resultMap="logInMap">
+		
+		select * from t_log_in
+		<include refid="commonSQL"></include>
+		limit #{params.page},#{params.each_Num}
+		
+	</select>
+	
+	<sql id="commonSQL">
+		<where>
+		
+			<if test="params.startTime!=null and params.startTime !=''">
+			 and log_time>= #{params.startTime}
+			</if>
+			<if test="params.endTime!=null and params.endTime !=''">
+			 and log_time&lt;= #{params.endTime}
+			</if>
+		</where>
+	</sql>
+
+
+
+
+
+
+</mapper>

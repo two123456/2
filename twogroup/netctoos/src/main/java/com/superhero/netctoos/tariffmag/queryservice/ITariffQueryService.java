@@ -1,5 +1,8 @@
 package com.superhero.netctoos.tariffmag.queryservice;
 
+import java.util.Map;
+
+import com.superhero.netctoos.bean.PageBean;
 import com.superhero.netctoos.bean.TariffBean;
 
 public interface ITariffQueryService {
@@ -9,4 +12,10 @@ public interface ITariffQueryService {
 	 * @return 资费对象
 	 */
 	TariffBean getTariffById(Long id);
+	/***
+	 * 显示所有资费
+	 * @param page
+	 * @return
+	 */
+	public PageBean findAll(Map params ,PageBean page);
 }

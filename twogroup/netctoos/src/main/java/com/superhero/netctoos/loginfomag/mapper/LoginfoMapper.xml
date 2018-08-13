@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，主要作用：分类，保证Sql节点唯一化 -->
+<mapper namespace="com.superhero.netctoos.loginfomag.mapper.LoginfoMapper">
+
+<resultMap type="LogInfoBean" id="logInfoMap">
+<id property="id" column="id" javaType="long" />
+		<result property="dailyInfo" column="daily_info"
+			javaType="string" />
+<association property="logInfo" javaType="LogInfoBean" column="fk_info_id" select="getLogInfoById" fetchType="lazy"></association>
+	
+</resultMap>
+
+<select id="getLogInfoById" resultType="logInfoBean">
+		select id as id,daily_info as dailyInfo from t_log_info where id = #{id}
+	</select>
+</mapper>
