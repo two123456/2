@@ -1,13 +1,12 @@
 package com.superhero.netctoos.accountbillmag.mapper;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.Param;
 
 import com.superhero.netctoos.bean.AccountBillBean;
+import com.superhero.netctoos.bean.AccountBillYearBean;
 import com.superhero.netctoos.bean.PageBean;
 
 public interface AccountBillMapper {
@@ -19,7 +18,16 @@ public interface AccountBillMapper {
 	 * @param month
 	 * @return
 	 */
-	public PageBean getPageBeanByItem(PageBean page, Map<String, Object> map);
+	public List<AccountBillYearBean> getPageBeanByItem(@Param("p") PageBean page, @Param("m") Map<String, Object> map);
+
+	/**
+	 * 根据月份和账务账号查询账务账单费用的数量
+	 * 
+	 * @param page
+	 * @param month
+	 * @return
+	 */
+	public int getCountByItem(@Param("p") PageBean page, @Param("m") Map<String, Object> map);
 
 	/**
 	 * 根据年份和账务账号名字精确查询月账单集合（连表，精确查询）
@@ -28,5 +36,6 @@ public interface AccountBillMapper {
 	 * @param accountName
 	 * @return
 	 */
-	public List<AccountBillBean> listByAccountAndYear(Date year, String accountName);
+
+	public List<AccountBillBean> listByAccountAndYear();
 }
