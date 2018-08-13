@@ -73,7 +73,7 @@
 										<i class="layui-icon">&#xe62e;</i>用户管理系统</a>
 									<dl class="layui-nav-child layui-nav-child">
 										<dd>
-											<a data-url="fdfd" data-id="11" data-title="权限管理" href="#" class="site-demo-active" data-type="tabAdd">账务账号管理</a>
+											<a data-url="index-user" data-id="11" data-title="权限管理" href="#" class="site-demo-active" data-type="tabAdd">账务账号管理</a>
 										</dd>
 										<dd>
 											<a data-url="views/admin/admin" data-id="1" data-title="权限管理" href="#" class="site-demo-active" data-type="tabAdd">业务账号管理</a>
