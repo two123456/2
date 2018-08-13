@@ -52,6 +52,16 @@ public class OsmonthBean implements Serializable {
 	/** 服务器Ip */
 	@Column(name = "server_ip")
 	private String serverIp;
+	/** 账务账号 */
+	@Column(name = "account")
+	private String account;
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
 
 	public long getId() {
 		return id;
@@ -111,8 +121,9 @@ public class OsmonthBean implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Osday [id=" + id + ", cost=" + cost + ", validTime=" + validTime + ", useTime=" + useTime
-				+ ", osAccount=" + osAccount + ", tariffCombo=" + tariffCombo + ", serverIp=" + serverIp + "]";
+		return "OsmonthBean [id=" + id + ", cost=" + cost + ", validTime=" + validTime + ", useTime=" + useTime
+				+ ", osAccount=" + osAccount + ", tariffCombo=" + tariffCombo + ", serverIp=" + serverIp + ", account="
+				+ account + "]";
 	}
 
 }

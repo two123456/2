@@ -31,6 +31,7 @@
 
 		<!-- 最大连接池数量 -->
 		<property name="maxActive" value="20" />
+		
 		<!-- 初始化时建立物理连接的个数 -->
 		<property name="initialSize" value="5" />
 		<!-- 获取连接时最大等待时间,单位是：毫秒 -->

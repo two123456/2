@@ -1,5 +1,7 @@
 package com.superhero.netctoos.adminmag.queryservice;
 
+import java.util.Map;
+
 import com.superhero.netctoos.bean.AdminBean;
 import com.superhero.netctoos.bean.PageBean;
 
@@ -16,6 +18,6 @@ public interface IAdminQueryService {
 	 * @param adminName
 	 * @return
 	 */
-	public PageBean getAdminBeanByName(PageBean page,String adminName);
+	public PageBean getAdminBeanByName(Map params,PageBean page);
 
 }
