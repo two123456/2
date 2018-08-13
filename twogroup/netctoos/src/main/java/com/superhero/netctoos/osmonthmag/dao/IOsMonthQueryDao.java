@@ -25,4 +25,5 @@ public interface IOsMonthQueryDao {
 	 * @return
 	 */
 	List<OsmonthBean> listOsMonthQueryByParams(Map params);
+	
 }

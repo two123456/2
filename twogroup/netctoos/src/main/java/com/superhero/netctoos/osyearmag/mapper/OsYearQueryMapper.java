@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
 import com.superhero.netctoos.bean.OsmonthBean;
+import com.superhero.netctoos.bean.OsyearBean;
 
 
 /***
@@ -70,4 +71,27 @@ public interface OsYearQueryMapper {
 			"		</where> limit #{params.index},#{params.rows}" + 
 	 "</script>")
 	List<OsmonthBean> listOsDayQueryByParams(@Param("params")Map params);
+	
+	@Results({@Result(id=true,property="id",column="id",javaType=Long.class),
+		@Result(property="cost",column="cost",javaType=double.class),
+		@Result(property="useTime",column="use_time",javaType=Date.class),
+		@Result(property="serverIp",column="server_ip",javaType=String.class),
+		@Result(property="validTime",column="valid_time",javaType=double.class),
+		@Result(property="osAccount",column="os_account",javaType=String.class),
+		@Result(property="account",column="account",javaType=String.class)
+	})
+	@Select("<script>"+ "select * from t_osmonth  " +
+			"		<where>" + 
+			"			<if test='params.os != null and params.os !=\"\"'>" + 
+			"				and os_account like concat(#{params.os},'%')" + 
+			"			</if>" + 
+			"			<if test='params.startTime != null and params.startTime !=\"\"'>" + 
+			"				and use_time &gt;= #{params.startTime} " + 
+			"			</if>" + 
+			"			<if test='params.endTime != null and params.endTime !=\"\"'>" + 
+			"				and use_time &lt;= #{params.endTime} " + 
+			"			</if>" + 
+			"		</where>" + 
+	 "</script>")
+	 List<OsmonthBean> getOsyearByOsAndYear(@Param("params")Map params);
 }

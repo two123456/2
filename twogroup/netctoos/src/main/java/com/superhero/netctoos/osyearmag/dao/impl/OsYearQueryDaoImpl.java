@@ -1,5 +1,6 @@
 package com.superhero.netctoos.osyearmag.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +37,13 @@ public class OsYearQueryDaoImpl implements IOsYearQueryDao {
 	public List<OsmonthBean> listOsYearQueryByParams(Map params) {
 		// TODO Auto-generated method stub
 		return om.listOsDayQueryByParams(params);
+	}
+
+	@Override
+	@DataSource("read")
+	public List<OsmonthBean> getOsyearByOsAndYear(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return om.getOsyearByOsAndYear(map);
 	}
 	
 

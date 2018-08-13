@@ -1,10 +1,12 @@
 package com.superhero.netctoos.osyearmag.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 
 import com.superhero.netctoos.bean.OsmonthBean;
+import com.superhero.netctoos.bean.OsyearBean;
 
 /***
  * 按月查询账务账单持久层接口（读）
@@ -25,4 +27,10 @@ public interface IOsYearQueryDao {
 	 * @return
 	 */
 	List<OsmonthBean> listOsYearQueryByParams(Map params);
+	/**
+	 * 根据业务账号和年份查询业务账号年账单信息
+	 * @param map 查询条件集合
+	 * @return 业务账号年账单对象
+	 */
+	List<OsmonthBean> getOsyearByOsAndYear(Map<String, Object> map);
 }
