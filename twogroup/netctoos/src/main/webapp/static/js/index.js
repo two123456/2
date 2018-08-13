@@ -10,7 +10,7 @@ layui.use('element', function() {
 			//关于tabAdd的方法所传入的参数可看layui的开发文档中基础方法部分
 			element.tabAdd('demo', {
 				title: name,
-				content: '<iframe data-frameid="' + id + '" scrolling="auto" frameborder="0" src="' + url + '.html" style="width:100%;height:99%;"></iframe>',
+				content: '<iframe data-frameid="' + id + '" scrolling="auto" frameborder="0" src="' + url + '.jsp" style="width:100%;height:99%;"></iframe>',
 				id: id //规定好的id
 			})
 			CustomRightClick(id); //给tab绑定右击事件
