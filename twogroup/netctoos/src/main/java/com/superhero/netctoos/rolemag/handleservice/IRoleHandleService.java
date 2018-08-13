@@ -1,9 +1,10 @@
 package com.superhero.netctoos.rolemag.handleservice;
-
-import java.util.List;
-
 import com.superhero.netctoos.bean.RoleBean;
-
+/**
+ * 角色管理写入持久层接口
+ * @author Administrator
+ *
+ */
 public interface IRoleHandleService {
 	/**
 	 * 添加角色
