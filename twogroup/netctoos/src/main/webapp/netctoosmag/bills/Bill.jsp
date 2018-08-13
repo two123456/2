@@ -86,7 +86,7 @@
             elem: '#demo_hash',
             height: 'full-80',
             url: '/demo/table/user', //数据接口
-            page: true, //开启分页
+            page: true, //开启分页 
             cols: [
                 [ //表头
                     {

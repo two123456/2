@@ -78,7 +78,7 @@
                     {
                         field: 'id', 
                         title: 'ID',
-                        width: 80,
+                        width: 80, 
                         sort: true,
                         fixed: 'left'
                     }, {
