@@ -10,7 +10,7 @@ import com.superhero.netctoos.bean.PageBean;
 /***
  * 账单持久层
  * 
- * @author wwv
+ * @author 
  *
  */
 public interface IAccountBillDao {

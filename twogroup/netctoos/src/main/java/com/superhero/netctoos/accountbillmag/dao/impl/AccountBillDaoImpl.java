@@ -27,13 +27,13 @@ public class AccountBillDaoImpl implements IAccountBillDao {
 	@Override
 	public PageBean getPageBeanByItem(PageBean page, Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return mapper.getPageBeanByItem(page, map);
+		return null;
 	}
 
 	@Override
 	public List<AccountBillBean> listByAccountAndYear(Date year, String accountName) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.listByAccountAndYear();
 	}
 
 	
