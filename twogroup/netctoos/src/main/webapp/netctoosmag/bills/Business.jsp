@@ -76,7 +76,7 @@
             cols: [
                 [ //表头
                     {
-                        field: 'id',
+                        field: 'id', 
                         title: 'ID',
                         width: 80,
                         sort: true,

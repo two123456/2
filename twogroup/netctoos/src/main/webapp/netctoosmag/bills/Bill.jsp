@@ -80,7 +80,7 @@
         });
         //第一个实例
         table.render({
-            method: 'post',
+            method: 'post', 
             // size: 'sm',
             limit: 20,
             elem: '#demo_hash',

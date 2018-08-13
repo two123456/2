@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>NETCTOSS 业务账号详情</title>
+    <title>NETCTOSS 业务账号详情</title> 
        <link rel="stylesheet" href="../static/layui/css/layui.css" id="layui">
     <link rel="stylesheet" href="../static/layui/css/theme/default.css" id="theme">
     <link rel="stylesheet" href="../static/layui/css/kitadmin.css" id="kitadmin">
