@@ -49,14 +49,15 @@
 							</a>
 							<dl class="layui-nav-child">
 								<dd>
-									<a href="javascript:;">
+									<a  data-url="publicService/updatepwd" data-id="2" data-title="修改密码" href="#" class="site-demo-active" data-type="tabAdd">
 										修改密码
 									</a>
 
 								</dd>
 								<dd>
-									<a href="javascript:;">
-										查看个人信息</a>
+								<a  data-url="publicService/individual" data-id="3" data-title="查看个人信息" href="#" class="site-demo-active" data-type="tabAdd">
+										查看个人信息
+									</a>
 								</dd>
 
 							</dl>
@@ -87,11 +88,13 @@
 									</a>
 									<dl class="layui-nav-child layui-nav-child">
 										<dd>
-											<a href="javascript:;">登陆服务日志</a>
+											<a data-url="/netctoos/netctoosmag/log/logIn_table" data-id="logIn" data-title="登陆服务日志" href="#" class="site-demo-active" data-type="tabAdd">登陆服务日志</a>
+
 
 										</dd>
 										<dd>
-											<a href="javascript:;">操作服务日志</a>
+											<a data-url="/netctoos/netctoosmag/log/logOpretion_table" data-id="logDaily" data-title="操作服务日志" href="#" class="site-demo-active" data-type="tabAdd">操作服务日志</a>
+
 										</dd>
 
 									</dl>
@@ -121,12 +124,12 @@
 									</a>
 								</dd>
 								<dd>
-									<a href="">
+									<a  data-url="accounting/findyears" data-id="7" data-title="账务查询" href="#" class="site-demo-active" data-type="tabAdd">
 										账务查询系统
 									</a>
 								</dd>
 								<dd>
-									<a href="">
+									<a data-url="bills/Bill" data-id="9" data-title="账单查询" href="#" class="site-demo-active" data-type="tabAdd">
 										账单查询系统
 									</a>
 								</dd>

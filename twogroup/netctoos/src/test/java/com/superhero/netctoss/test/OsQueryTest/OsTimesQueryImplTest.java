@@ -40,6 +40,7 @@ public class OsTimesQueryImplTest {
 		PageBean page = new PageBean(1, 2);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("osAccount", "张");
+		map.put("time", "2018-08-13");
 		PageBean bean = osTimesQueryServiceImpl.getPageBeanByOsAndMonth(page, map);
 		System.out.println(bean.getData());
 	}

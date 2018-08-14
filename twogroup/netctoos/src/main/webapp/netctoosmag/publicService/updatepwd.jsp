@@ -5,12 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>修改密码</title>
-     <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../static/bootstrap/bootstrap-theme.min.css"/>
-    <script src="../static/js/jQuery-2.2.2-min.js"></script>
-    <script src="../static/bootstrap/bootstrap.min.js"></script>
-    <script src="../static/bootstrap/bootstrap-paginator.min.js"></script>
-    <script src="../static/bootstrap/DatePicker/WdatePicker.js"></script> 
+     <link rel="stylesheet" href="/netctoos/static/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/netctoos/static/bootstrap/bootstrap-theme.min.css"/>
+
+    <script src="/netctoos/static/js/jQuery-2.2.2-min.js"></script>
+    <script src="/netctoos/static/bootstrap/bootstrap.min.js"></script>
+    <script src="/netctoos/static/bootstrap/bootstrap-paginator.min.js"></script>
+    <!-- <script src="/netctoos/static/bootstrap/WdatePicker.js"></script> -->
     
     <style>
         *{

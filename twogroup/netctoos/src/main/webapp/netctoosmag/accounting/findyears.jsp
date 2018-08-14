@@ -10,13 +10,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>NETCTOSS 按年份查询</title>
-    <link rel="stylesheet" href="../static/layui/css/layui.css" id="layui">
-    <link rel="stylesheet" href="../static/layui/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="../static/layui/css/kitadmin.css" id="kitadmin">
-    <script src="../static/js/polyfill.min.js"></script>
-    <script src="../static/js/layui.js"></script>
-    <script src="../static/js/kitadmin.js"></script>
-    <script src="../static/js/mockjs-config.js"></script>
+  <link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
+    <script src="/netctoos/static/js/polyfill.min.js"></script>
+    <script src="/netctoos/static/js/layui.js"></script>
+    <script src="/netctoos/static/js/kitadmin.js"></script>
+    <script src="/netctoos/static/js/mockjs-config.js"></script>
 </head>
 <div class="layui-fluid">
     <div class="layui-row">
@@ -122,12 +122,12 @@
                 }, {
                     field: 'os_account',
                     title: '业务账号',
-                    width: 200,
+                    width: 150,
                     sort: true
                 }, {
                     field: 'server_ip',
                     title: '服务器IP',
-                    width: 250
+                    width: 150
                 }, {
                     field: 'account',
                     title: '账务账号',
@@ -146,7 +146,7 @@
                     }, {
                     field: 'tariff_combo',
                     title: '资费套餐',
-                    width: 250,
+                    width: 200,
                     sort: true
                     }, {
                     fixed: 'right',
@@ -164,7 +164,7 @@
             if(obj.event === 'detail') {
                 layer.open({
                     type: 2,
-                    area: ['1800px', '900px'],
+                    area: ['1700px', '800px'],
                     fixed: false, //不固定
                     maxmin: true,
                     content: 'findmonth.jsp'

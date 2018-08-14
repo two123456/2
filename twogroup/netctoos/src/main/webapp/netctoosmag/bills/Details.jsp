@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <div style="text-align: center  "   >
@@ -9,14 +9,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>NETCTOSS 业务账号详情</title> 
-       <link rel="stylesheet" href="../static/layui/css/layui.css" id="layui">
-    <link rel="stylesheet" href="../static/layui/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="../static/layui/css/kitadmin.css" id="kitadmin">
-    <script src="../static/js/polyfill.min.js"></script>
-    <script src="../static/js/layui.js"></script>
-    <script src="../static/js/kitadmin.js"></script>
-    <script src="../static/js/mockjs-config.js"></script>
+    <title>NETCTOSS 业务账号详情</title>
+    <link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
+    <script src="/netctoos/static/js/polyfill.min.js"></script>
+    <script src="/netctoos/static/js/layui.js"></script>
+    <script src="/netctoos/static/js/kitadmin.js"></script>
+    <script src="/netctoos/static/js/mockjs-config.js"></script>
 </head>
 <div class="layui-fluid">
     <div class="layui-row">
@@ -70,7 +70,7 @@
             // size: 'sm',
             limit: 10,
             elem: '#demo_hash',
-            height: 'full-235',
+            height: 'full-90',
             url: '/demo/table/user', //数据接口
             page: true, //开启分页
             cols: [
@@ -122,7 +122,3 @@
 
     });
 </script>
-
-<style scoped>
-
-</style>
