@@ -11,10 +11,10 @@ import com.superhero.netctoos.bean.PageBean;
 
 public interface AccountBillYearQueryMapper {
 
-	
+	/*@Select("")*/
 	public int getCountByItem(@Param("p") PageBean page, @Param("m") Map<String, Object> map);
 
-	@Select("<script>"
+	/*@Select("<script>"
 			+ "SELECT aby.id AS idaby.year_time AS yearTime,aby.user_name AS userName,osy.os_account AS accunt ,osy.server_ip AS serverIp\r\n" + 
 			"FROM t_osyear osy ,t_account_bill_year aby"
 			+ "<where>"
@@ -26,6 +26,6 @@ public interface AccountBillYearQueryMapper {
 			+ ""
 			+ "</if>"
 			+ "</where>"
-			+ "<script>")
+			+ "</script>")*/
 	public List<AccountBillYearBean> getPageBeanByItem(@Param("p") PageBean page, @Param("m") Map<String, Object> map);
 }

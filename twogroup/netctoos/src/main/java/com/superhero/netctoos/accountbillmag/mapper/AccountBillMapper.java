@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import com.superhero.netctoos.bean.AccountBillBean;
 import com.superhero.netctoos.bean.AccountBillYearBean;
@@ -36,6 +37,5 @@ public interface AccountBillMapper {
 	 * @param accountName
 	 * @return
 	 */
-
 	public List<AccountBillBean> listByAccountAndYear();
 }

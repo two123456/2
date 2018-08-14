@@ -34,7 +34,7 @@ public class AccountBillDaoImpl implements IAccountBillDao {
 
 	@Override
 	public List<AccountBillBean> listByAccountAndYear(Date year, String accountName) {
-		// TODO Auto-generated method stub
+		
 		return mapper.listByAccountAndYear();
 	}
 
