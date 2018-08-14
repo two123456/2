@@ -36,8 +36,43 @@ public class AccountBillYearBean implements Serializable {
 	/** 用户真实姓名 */
 	private String userName;
 	@Column(name = "account", length = 20)
-	/** 账务账号 */
+	/** 业务账号 */
 	private String account;
+	
+	/** 实验室ip*/
+	private String serverIp;
+	
+	/** 有效时间*/
+	private double validTime;
+	
+
+	public AccountBillYearBean(long id, Double cost, Date yearTime, String userName, String account, String serverIp,
+			double validTime) {
+		super();
+		this.id = id;
+		this.cost = cost;
+		this.yearTime = yearTime;
+		this.userName = userName;
+		this.account = account;
+		this.serverIp = serverIp;
+		this.validTime = validTime;
+	}
+
+	public String getServerIp() {
+		return serverIp;
+	}
+
+	public void setServerIp(String serverIp) {
+		this.serverIp = serverIp;
+	}
+
+	public double getValidTime() {
+		return validTime;
+	}
+
+	public void setValidTime(double validTime) {
+		this.validTime = validTime;
+	}
 
 	public AccountBillYearBean() {
 		super();
@@ -86,7 +121,7 @@ public class AccountBillYearBean implements Serializable {
 	@Override
 	public String toString() {
 		return "AccountBillYearBean [id=" + id + ", cost=" + cost + ", yearTime=" + yearTime + ", userName=" + userName
-				+ ", account=" + account + "]";
+				+ ", account=" + account + ", serverIp=" + serverIp + ", validTime=" + validTime + "]";
 	}
 
 }

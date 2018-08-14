@@ -27,6 +27,8 @@ public class AccountBillDaoImpl implements IAccountBillDao {
 	@Override
 	public PageBean getPageBeanByItem(PageBean page, Map<String, Object> map) {
 		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 

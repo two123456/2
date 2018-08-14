@@ -8,15 +8,15 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
 
-import com.superhero.netctoos.accountbillmag.mapper.AccountBillMapper;
 import com.superhero.netctoos.accountbillyearmag.dao.IAccountBillYearQueryDao;
+import com.superhero.netctoos.accountbillyearmag.mapper.AccountBillYearQueryMapper;
 import com.superhero.netctoos.bean.AccountBillYearBean;
 import com.superhero.netctoos.bean.PageBean;
 
 @Repository
 public class AccountBillYearQueryDaoImpl implements IAccountBillYearQueryDao {
 	@Resource
-	private AccountBillMapper mapper;
+	private AccountBillYearQueryMapper mapper;
 
 	@Override
 	public PageBean getAccountBillYearByItem(PageBean page, Map<String, Object> map) {

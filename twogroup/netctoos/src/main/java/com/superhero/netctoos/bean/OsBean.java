@@ -44,6 +44,8 @@ public class OsBean implements Serializable {
 	/** 状态 */
 	@Column(name = "os_state")
 	private int osState;
+	// 状态(sql转化)
+	private String osStatus;
 
 	/** 服务器类 */
 	@OneToOne(fetch = FetchType.EAGER)
@@ -57,6 +59,39 @@ public class OsBean implements Serializable {
 	private String account;
 	// 资费方式
 	private String tariff;
+
+	
+	public String getOsStatus() {
+		return osStatus;
+	}
+
+	public void setOsStatus(String osStatus) {
+		this.osStatus = osStatus;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
+
+	public String getTariff() {
+		return tariff;
+	}
+
+	public void setTariff(String tariff) {
+		this.tariff = tariff;
+	}
 
 	public long getId() {
 		return id;

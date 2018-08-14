@@ -6,7 +6,7 @@ import com.superhero.netctoos.bean.PageBean;
 
 public interface IAccountBillYearQueryService {
 	/**
-	 * 根据真实姓名，年份查询年账单
+	 * 根据真账务账号，年份查询年账单
 	 * @param page
 	 * @param map
 	 * @return
