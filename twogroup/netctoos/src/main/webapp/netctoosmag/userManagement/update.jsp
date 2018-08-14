@@ -7,14 +7,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>修改业务账号详情</title>
-    <link rel="stylesheet" href="../static/layui/css/layui.css" id="layui">
-    <link rel="stylesheet" href="../static/layui/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="../static/layui/css/kitadmin.css" id="kitadmin">
-    <script src="../static/jQuery-2.2.2-min.js"></script>
-     <script src="../static/js/polyfill.min.js"></script>
-    <script src="../static/js/layui.js"></script>
-    <script src="../static/js/kitadmin.js"></script>
-    <script src="../static/js/mockjs-config.js"></script>	
+    <link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
+    <script src="/netctoos/static/js/polyfill.min.js"></script>
+    <script src="/netctoos/static/js/layui.js"></script>
+    <script src="/netctoos/static/js/kitadmin.js"></script>
+    <script src="/netctoos/static/js/mockjs-config.js"></script>
+    <script src="/netctoos/static/jQuery-2.2.2-min.js"></script>
 	</head>
 	<div class="layui-fluid">
 		<div class="layui-row">
@@ -24,7 +24,7 @@
 						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
 							<legend>修改管理员资料</legend>
 						</fieldset>
-						<form class="layui-form layui-form-pane" action="">				
+						<form class="layui-form layui-form-pane" action="admins/updateAdmin">				
 							<div class="layui-form-item">
 								<label class="layui-form-label">业务账号</label>
 								

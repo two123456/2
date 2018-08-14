@@ -6,27 +6,25 @@
 <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>账务账号管理</title>
-		<link rel="stylesheet" href="../static/layui/css/layui.css" id="layui">
-		<link rel="stylesheet" href="../static/layui/css/theme/default.css" id="theme">
-		<link rel="stylesheet" href="../static/layui/css/kitadmin.css" id="kitadmin">
-		<script src="../static/jQuery-2.2.2-min.js"></script>
-		<script src="../static/js/polyfill.min.js"></script>
-		<script src="../static/js/layui.js"></script>
-		<script src="../static/js/kitadmin.js"></script>
-		<script src="../static/js/mockjs-config.js"></script>
+	<link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
+    <script src="/netctoos/static/js/polyfill.min.js"></script>
+    <script src="/netctoos/static/js/layui.js"></script>
+    <script src="/netctoos/static/js/kitadmin.js"></script>
+    <script src="/netctoos/static/js/mockjs-config.js"></script>
+    <script src="/netctoos/static/jQuery-2.2.2-min.js"></script>
 	</head>
 	<div class="layui-fluid">
 		<div class="layui-row">
 			<div class="layui-col-xs12">
 				<div class="layui-card">
-
 					<div class="layui-card-body">
 						<div class="layui-card-header">
-							<!-- <span>所有会员列表</span> -->
 							<a id="addButton" class="layui-btn layui-btn-xs" lay-event="detail">
 								<i class="layui-icon addbutton">新增&#xe654;</i>
 							</a>
-							<a id="findbutton" href="javascript:;" class="layui-btn layui-btn-xs layui-btn-primary" id="search_hash">
+							<a  href="javascript:;" class="layui-btn layui-btn-xs layui-btn-primary" id="search_hash">
 								<i class="layui-icon findbutton">查询&#xe615;</i>
 							</a>
 							<button type="button" class="layui-btn" id="upload">
@@ -133,19 +131,19 @@
 					{
 						field: 'username',
 						title: '用户名',
-						width: 250
+						width: 200
 					}, {
 						field: 'accountingNumber',
 						title: '账务账号',
-						width: 250
+						width: 200
 					}, {
 						field: 'accountingState',
 						title: '账务状态',
-						width: 250
+						width: 200
 					}, {
 						field: 'address',
 						title: '地址',
-						width: 338
+						width: 300
 					}, {
 						field: 'operate',
 						title: '操作',
@@ -159,7 +157,7 @@
 		$('#addButton').on('click', function() {
 			layer.open({
 				type: 2,
-				area: ['900px', '550px'],
+				area: ['600px', '450px'],
 				title: ['新增', 'font-size:18px;'],
 				fixed: false, //不固定
 				maxmin: true,
@@ -175,10 +173,25 @@
 			if(obj.event === 'open') {
 				layer.open({
 					type: 2,
-					area: ['900px', '550px'],
+					area: ['600px', '450px'],
 					fixed: false, //不固定
 					maxmin: true,
 					content: 'businessRegister.jsp'
+				});
+			}else if (obj.event === 'del') {
+				layer.confirm('真的删除行么', function(index) {
+					var infomation = {"id":data.id,"username":data.username,"accountingNumber":data.accountingNumber,"accountingState":data.accountingState,"address":data.address,"operate":data.operate};
+					$.ajax({
+						   type: "DELETE",
+						   url: "admins/"+data.id,
+						   data:infomation,
+						   success: function(){
+						    obj.del();
+						    layer.close(index);
+						    $(".layui-laypage-btn")[0].click();
+						   }
+						}); 
+					
 				});
 			}
 		});
@@ -224,7 +237,7 @@
 		margin-left: -20px;
 	}
 
-#findbutton{
+#search_hash{
 	width: 100px;
 	height: 40px;
 }

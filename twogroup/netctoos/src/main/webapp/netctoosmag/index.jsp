@@ -74,10 +74,10 @@
 										<i class="layui-icon">&#xe62e;</i>用户管理系统</a>
 									<dl class="layui-nav-child layui-nav-child">
 										<dd>
-											<a data-url="index-user" data-id="11" data-title="权限管理" href="#" class="site-demo-active" data-type="tabAdd">账务账号管理</a>
+											<a data-url="userManagement/accountNum" data-id="11" data-title="账务账号管理" href="#" class="site-demo-active" data-type="tabAdd">账务账号管理</a>
 										</dd>
 										<dd>
-											<a data-url="views/admin/admin" data-id="1" data-title="权限管理" href="#" class="site-demo-active" data-type="tabAdd">业务账号管理</a>
+											<a data-url="userManagement/businessNum" data-id="1" data-title="业务账号管理" href="#" class="site-demo-active" data-type="tabAdd">业务账号管理</a>
 										</dd>
 
 									</dl>
@@ -114,7 +114,7 @@
 									</dl>
 								</dd>
 								<dd>
-									<a href="">
+									<a data-url="statement/statement" data-id="111" data-title="报表查询" href="#" class="site-demo-active" data-type="tabAdd">
 										报表查询系统
 									</a>
 								</dd>
