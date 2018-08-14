@@ -10,13 +10,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>NETCTOSS 按天查询</title>
-    <link rel="stylesheet" href="../static/layui/css/layui.css" id="layui">
-    <link rel="stylesheet" href="../static/layui/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="../static/layui/css/kitadmin.css" id="kitadmin">
-    <script src="../static/js/polyfill.min.js"></script>
-    <script src="../static/js/layui.js"></script>
-    <script src="../static/js/kitadmin.js"></script>
-    <script src="../static/js/mockjs-config.js"></script>
+      <link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
+    <script src="/netctoos/static/js/polyfill.min.js"></script>
+    <script src="/netctoos/static/js/layui.js"></script>
+    <script src="/netctoos/static/js/kitadmin.js"></script>
+    <script src="/netctoos/static/js/mockjs-config.js"></script>
 </head>
 <div class="layui-fluid">
     <div class="layui-row">

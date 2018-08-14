@@ -10,13 +10,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>NETCTOSS 按月查询</title>
-      <link rel="stylesheet" href="../static/layui/css/layui.css" id="layui">
-    <link rel="stylesheet" href="../static/layui/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="../static/layui/css/kitadmin.css" id="kitadmin">
-    <script src="../static/js/polyfill.min.js"></script>
-    <script src="../static/js/layui.js"></script>
-    <script src="../static/js/kitadmin.js"></script>
-    <script src="../static/js/mockjs-config.js"></script>
+   <link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
+    <script src="/netctoos/static/js/polyfill.min.js"></script>
+    <script src="/netctoos/static/js/layui.js"></script>
+    <script src="/netctoos/static/js/kitadmin.js"></script>
+    <script src="/netctoos/static/js/mockjs-config.js"></script>
 </head>
 <div class="layui-fluid">
     <div class="layui-row">
@@ -70,6 +70,7 @@
             limit: 10,
             elem: '#demo_hash',
             height: 'full-235',
+            //width : 1500,
             url: '/demo/table/user', //数据接口
             page: true, //开启分页
             cols: [
@@ -96,22 +97,22 @@
                 }, {
                     field: 'account',
                     title: '账务账号',
-                    width: 250
+                    width: 200
                 }, {
                     field: 'use_time',
                     title: '账单日期(月)',
-                    width: 250,
+                    width: 200,
                     sort: true
                 }, {
 
                     field: 'valid_time',
                     title: '有效时间',
-                    width: 250,
+                    width: 200,
                     sort: true
                 }, {
                     field: 'tariff_combo',
                     title: '资费套餐',
-                    width: 250,
+                    width: 180,
                     sort: true
                 }, {
                     fixed: 'right',
@@ -129,7 +130,7 @@
             if(obj.event === 'detail') {
                 layer.open({
                     type: 2,
-                    area: ['1500px', '700px'],
+                    area: ['1500px', '800px'],
                     fixed: false, //不固定
                     maxmin: true,
                     content: 'finddate.jsp'

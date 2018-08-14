@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>个人信息</title>
-    <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../static/bootstrap/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/netctoos/static/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/netctoos/static/bootstrap/bootstrap-theme.min.css"/>
 
-    <script src="../static/js/jQuery-2.2.2-min.js"></script>
-    <script src="../static/bootstrap/bootstrap.min.js"></script>
-    <script src="../static/bootstrap/bootstrap-paginator.min.js"></script>
-    <script src="../static/bootstrap/WdatePicker.js"></script>
+    <script src="/netctoos/static/js/jQuery-2.2.2-min.js"></script>
+    <script src="/netctoos/static/bootstrap/bootstrap.min.js"></script>
+    <script src="/netctoos/static/bootstrap/bootstrap-paginator.min.js"></script>
+    <!-- <script src="/netctoos/static/bootstrap/WdatePicker.js"></script> -->
     <style>
         *{
             font-family: 幼圆;
