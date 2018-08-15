@@ -1,9 +1,12 @@
 package com.superhero.netctoos.logdailymag.queryservice;
 
+
+
 import java.util.Date;
 import java.util.List;
 
-import com.superhero.netctoos.bean.LogDailyBean;
+import org.springframework.stereotype.Service;
+
 import com.superhero.netctoos.bean.PageBean;
 
 public interface ILogdailyQueryService {

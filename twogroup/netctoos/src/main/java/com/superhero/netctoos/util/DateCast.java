@@ -40,5 +40,22 @@ public class DateCast {
 			return null;
 		}
 	}
+	
+	/**
+	 * 字符串转sql.Date
+	 * @param date 传入的字符串
+	 * @return sqlDate
+	 */
+	public static java.util.Date utilDate(String date) {
+		if(date==null) {
+			return null;
+		}
+		String sqlDate = date.replace("/", "-");
+		if("".equals(sqlDate.trim())||!sqlDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+			return null;
+		}
+		return Date.valueOf(sqlDate);
+	}
+	
 
 }

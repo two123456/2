@@ -1,6 +1,6 @@
 package com.superhero.netctoos.logdailymag.dao.impl;
 
-import java.util.Date;
+
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -13,15 +13,15 @@ import com.superhero.netctoos.logdailymag.mapper.LogdailyMapper;
 @Repository
 public class LogDailyDaoImpl implements ILogDailyDao {
 	@Resource
-   private LogdailyMapper logDailyMapper;
+   private LogdailyMapper logdailyMapper;
 	@Override
 	public PageBean getLogDailyByTime(Map map, PageBean page) {
 		// TODO Auto-generated method stub
 
-		page.setCount(logDailyMapper.countLogDaily(map));
+		page.setCount(logdailyMapper.countLogDaily(map));
 		map.put("page", (page.getPage()-1)*page.getLimit());
 		map.put("each_Num",page.getLimit());
-		page.setData(logDailyMapper.getLogDailyBeanByStartTimeAndEndTime(map));
+		page.setData(logdailyMapper.getLogDailyBeanByStartTimeAndEndTime(map));
 		return page;
 	}
 

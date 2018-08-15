@@ -9,7 +9,7 @@
 		<id property="id" column="id" javaType="long" />
 		<result property="logName" column="log_name"
 			javaType="string" />
-		<result property="logTime" column="log_time"  />
+		<result property="logTime" column="log_time" javaType="date" />
 	<result property="serverIp" column="server_ip"/>
 	<result property="enter" column="enter"/>
 		</resultMap>
@@ -33,10 +33,10 @@
 	<sql id="commonSQL">
 		<where>
 		
-			<if test="params.startTime!=null ">
+			<if test="params.startTime!=null and params.startTime !=''">
 			 and log_time>= #{params.startTime}
 			</if>
-			<if test="params.endTime!=null">
+			<if test="params.endTime!=null and params.endTime !=''">
 			 and log_time&lt;= #{params.endTime}
 			</if>
 		</where>

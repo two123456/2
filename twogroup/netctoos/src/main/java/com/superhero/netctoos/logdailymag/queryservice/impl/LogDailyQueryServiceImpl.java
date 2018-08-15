@@ -1,5 +1,6 @@
 package com.superhero.netctoos.logdailymag.queryservice.impl;
 
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.superhero.netctoos.bean.PageBean;
 import com.superhero.netctoos.logdailymag.dao.ILogDailyDao;
 import com.superhero.netctoos.logdailymag.queryservice.ILogdailyQueryService;
-@Service("articleService")
+@Service
 public class LogDailyQueryServiceImpl implements ILogdailyQueryService {
 @Resource
 	private ILogDailyDao logDailyDaoImpl;

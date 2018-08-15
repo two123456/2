@@ -3,23 +3,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
+<head>
+<meta charset="utf-8">
+ <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<head>
-		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>前台日志系统</title>
-		<link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
-		<link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
-		<script src="/netctoos/static/js/polyfill.min.js"></script>
-		<script src="/netctoos/static/js/layui.js"></script>
-		<script src="/netctoos/static/js/kitadmin.js"></script>
-		<script src="/netctoos/static/js/mockjs-config.js"></script>
-		
-		<script src="/netctoos/static/jQuery-2.2.2-min.js"></script>
-		<script src="/netctoos/static/layui/layui.js"></script>
-		
-		<link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
-	
+	<link rel="stylesheet" href="/netctoos/static/layui/css/layui.css" id="layui">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/netctoos/static/layui/css/kitadmin.css" id="kitadmin">
+    <script src="/netctoos/static/js/polyfill.min.js"></script>
+    <script src="/netctoos/static/js/layui.js"></script>
+    <script src="/netctoos/static/js/kitadmin.js"></script>
+    <script src="/netctoos/static/js/mockjs-config.js"></script>
+    <script src="/netctoos/static/jQuery-2.2.2-min.js"></script>
 	</head>
 	<div class="layui-fluid">
 		<div class="layui-row">
@@ -34,20 +32,9 @@
 							</a>
 						</div>
 						<div class="layui-card-body">
+							<table id="demo_hash" lay-filter="test"></table>
 							
-							<table class="layui-table" lay-data="{ height:332, url:'/netctoos/logDaily/write', page:true, id:'idTest',method:'post',limit:5}" lay-filter="demo" id="demo_hash" >
-  <thead>
-    <tr>
-      
-      <th lay-data="{field:'id',style='display:none'}" >ID</th>
-      <th lay-data="{field:'dailyName'}" >管理员</th>
-      <th lay-data="{field:'dailyTime',  sort: true ,templet:'#optTime'} "  >操作时间</th>
-      <th lay-data="{field:'dailyMod'} "  >操作模块</th>
-        <th lay-data="{field:'dailyType',templet:'#titleTpl' }"  >操作类型</th>
-          <th lay-data="{fixed: 'right',  align:'center', toolbar: '#barDemo_hash'}"></th>
-    </tr>
-  </thead>
-</table>
+
   <script type="text/html" id="barDemo_hash">
 
   <a class="layui-btn layui-btn-xs" lay-event="edit">查看</a>
@@ -98,14 +85,14 @@
 		<div class="layui-inline">
       <label class="layui-form-label">起始日期</label>
       <div class="layui-input-inline">
-        <input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd">
+        <input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd" name="startTime">
       </div>
     </div>
 </br></br>
 	<div class="layui-inline">
       <label class="layui-form-label">结束日期</label>
       <div class="layui-input-inline">
-        <input type="text" class="layui-input" id="test1-1" placeholder="yyyy-MM-dd">
+        <input type="text" class="layui-input" id="test1-1" placeholder="yyyy-MM-dd"name="endTime">
       </div>
     </div>
 </br></br>
@@ -119,6 +106,105 @@
 </script>
 
 <script>
+
+layui.config({
+	base: '/src/js/'
+}).use(['jquery', 'mockjs', 'table', 'sidebar', 'form', 'layer'], function() {
+	var $ = layui.jquery,
+		layer = layui.layer,
+		table = layui.table,
+		sidebar = layui.sidebar,
+		form = layui.form;
+
+
+	//第一个实例
+	table.render({
+		method: 'post',
+		// size: 'sm',
+		limit: 5,
+		elem: '#demo_hash',
+		height: '300',
+		url: '/netctoos/logDaily/write', //数据接口
+		page: true, //开启分页
+		cols: [
+			[ //表头
+				
+				{
+					field: 'dailyName',
+					title: '管理员',
+					
+				}, {
+					field: 'logTime',
+					title: '操作时间',
+					sort:true,
+					
+					toolbar: '#optTime'
+				}, {
+					field: 'dailyMod',
+					title: '操作模块',
+					
+				}, {
+					field: 'dailyType',
+					title: '操作类型',
+					toolbar: '#titleTpl',
+				
+				}, {
+					field: 'operate',
+					title: '操作',
+					
+				toolbar: '#barDemo_hash'
+				}
+			]
+		]
+	});
+	$('table.layui-table thead tr th:eq(0)').addClass('layui-hide'); 
+	
+	
+		table.on('tool(test)', function(obj) {
+			var data = obj.data;
+			if(obj.event === 'edit') {
+				layer.open({
+					  type: 2,
+					  area: ['400px', '400px'],
+					  fixed: false, //不固定
+					  maxmin: true,
+					  content: '/netctoos/loginfo/write?id='+data.id
+					
+				});
+			}
+		 
+	  });
+	$('#search_hash').on('click', function() {
+		var that = this;
+		// console.log($('#search_tpl_hash').html());
+		sidebar.render({
+			elem: that,
+			content: $('#search_tpl_hash').html(),
+			title: '搜索',
+			shade: true,
+			// shadeClose:false,
+			// direction: 'left'
+			// dynamicRender: false,
+			// url: 'views/member/all/search.html',
+			width: '500px', //可以设置百分比和px
+			done: function() {
+				console.log('ccc');
+				form.render();
+
+				//监听提交
+				form.on('submit(formDemo_hash)', function(data) {
+					// layer.msg(JSON.stringify(data.field));
+					table.reload('demo_hash', {
+						where: data.field
+					});
+					return false;
+				});
+			}
+		});
+	});
+});
+
+
 layui.use('laydate', function(){
 	  var laydate = layui.laydate;
 	  
@@ -132,80 +218,12 @@ layui.use('laydate', function(){
 });
 
 
-layui.use('table', function(){
-	  var table = layui.table;
-	  table.on('tool(demo)', function(obj){
-		    var data = obj.data;
-		    if(obj.event === 'edit'){
-		    	 layer.open({
-		   		  type: 2,
-		   		  area: ['700px', '450px'],
-		   		  fixed: false, //不固定
-		   		  maxmin: true,
-		   		  content: ''
-		   		});
 
 
-		    } 
-		  });
-		  var $ = layui.$, active = {
-			  	    reload: function(){
-			  	      var demoReload = $('#userName');
-			  	      var startDate = $('#test1');
-			  	      var endDate =  $('#test1-1');
-			  	      
-			  	      table.reload('demo_hash', {
-			  	        where: {
-			  	            keyword:{ 
-			  	            	userName:demoReload.val(),
-			  	            	startDate:startDate.val(),
-			  	            	endDate:endDate.val()
-			  	            
-			  	            } 
-			  	          
-			  	        }
-			  	      });
-			  	    }
-			  	  };
-	
 
 		//监听工具条
- 	$('table.layui-table thead tr th:eq(0)').addClass('layui-hide'); 
-
-		$('#search_hash').on('click', function() {
-			var that = this;
-			// console.log($('#search_tpl_hash').html());
-			sidebar.render({
-				elem: that,
-				content: $('#search_tpl_hash').html(),
-				title: '搜索',
-				shade: true,
-				// shadeClose:false,
-				// direction: 'left'
-				// dynamicRender: false,
-				// url: 'views/member/all/search.html',
-				width: '500px', //可以设置百分比和px
-				done: function() {
-					console.log('ccc');
-					form.render();
-
-					//监听提交
-					form.on('submit(formDemo_hash)', function(data) {
-						// layer.msg(JSON.stringify(data.field));
-						table.reload('demo_hash', {
-							where: data.field
-						});
-						return false;
-					});
-				}
-			});
-		});
-		
-		 $('.demoTable .layui-btn').on('click', function(){
-			    var type = $(this).data('type');
-			    active[type] ? active[type].call(this) : '';
-			  });
- 	}); 
+ 
+ 
 </script>
 <script type="text/html" id="titleTpl">
         {{#  if(d.dailyType =='0'){ }}

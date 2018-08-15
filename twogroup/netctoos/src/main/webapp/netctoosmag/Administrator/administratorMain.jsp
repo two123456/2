@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -37,6 +36,7 @@
 								<i class="layui-icon">&#xe615;</i>
 							</a>
 						</div>
+						</div>
 						<div class="layui-card-body">
 							<table id="demo_hash" lay-filter="test"></table>
 							<script type="text/html" id="barDemo_hash">
@@ -49,7 +49,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+
 
 </html>
 

@@ -26,9 +26,9 @@ public class LogInController {
 	public void register(HttpServletResponse res,HttpServletRequest req,String page,String limit) throws Exception{
 		ObjectMapper om=new ObjectMapper();
 		
-		Date startTime=DateCast.sqlDateChange(req.getParameter("keyword[startDate]"));
-		Date endTime=DateCast.sqlDateChange(req.getParameter("keyword[endDate]"));
-
+		Date startTime=DateCast.utilDate(req.getParameter("startTime"));
+		Date endTime=DateCast.utilDate(req.getParameter("endTime"));
+System.out.println(startTime+"  "+endTime);
 		PageBean pager=new PageBean();
 		pager.setLimit(Integer.parseInt(limit));
 		pager.setPage(Integer.parseInt(page));
