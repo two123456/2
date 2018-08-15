@@ -51,7 +51,8 @@ public class RoleServiceImplTest {
 	public void getRole() {
 		PageBean page=new PageBean(1,3);
 		Map params = new HashMap<>();
-        page=RoleDaoImpl.getRole(params, page, "普通管理员");
+		params.put("roleName", "普通管理员");
+        page=RoleDaoImpl.getRole(params, page);
         System.out.println(page);
 	}
 }

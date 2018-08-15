@@ -18,7 +18,7 @@ public class RoleQueryServiceImpl implements IRoleQueryService{
 	@Resource
 	private IRoleQueryDao roleQueryDaoImpl;
 	@Override
-	public PageBean getRole(Map params,PageBean page, String roleName) {
+	public PageBean getRole(Map params,PageBean page) {
 		int totalRows=roleQueryDaoImpl.countpage(params);
 		if (totalRows>0) {
 			params.put("index",page.getIndex());

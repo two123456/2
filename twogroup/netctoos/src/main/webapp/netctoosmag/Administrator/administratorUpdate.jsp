@@ -25,52 +25,42 @@
 	<div class="layui-fluid">
 		<div class="layui-row">
 			<div class="layui-col-xs12">
-				<div class="layui-card">
-					
+				<div class="layui-card">					
 					<div class="layui-card-body">
-
 						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
 							<legend>修改管理员资料</legend>
 						</fieldset>
-						<form class="layui-form layui-form-pane" action="">
+						<form class="layui-form layui-form-pane" action="/netctoos/admins/updateAdmin" method="post">
+						<div>
+							 <input type="hidden" name="id" id="id" >					
+						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">姓名</label>
 								<div class="layui-input-block">
-									<input type="text" name="userName" placeholder="请输入姓名" autocomplete="off" class="layui-input">
-								</div>
-								
+									<input type="text" id="adminName" name="adminName" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+								</div>								
 							</div>
 							<div class="layui-form-item">
-								<label class="layui-form-label">账户名称</label>
-								
-								<div class="layui-form-mid layui-word-aux" name="accoName">&nbsp;zhangsan</div>
-							</div>
-								<div class="layui-form-item">
-								<label class="layui-form-label">性别</label>
-								
-								<div class="layui-form-mid layui-word-aux" name="gender">&nbsp;男</div>
-							</div>
+								<label class="layui-form-label">账务账号</label>
+								<div class="layui-input-block">
+									<input type="text" id="adminNum" name="adminNum"  autocomplete="off" class="layui-input" readonly="readonly">
+								</div>								
+							</div>							
 							<div class="layui-form-item">
 								<label class="layui-form-label">邮箱</label>
 								<div class="layui-input-block">
-									<input type="text" name="Email" autocomplete="off" placeholder="请输入邮箱" class="layui-input">
+									<input type="text" id="adminMail" name="adminMail" autocomplete="off" placeholder="请输入邮箱" class="layui-input">
 								</div>
 							</div>
 							<div class="layui-form-item">
 								<label class="layui-form-label">电话</label>
 								<div class="layui-input-block">
-									<input type="text" name="tell" autocomplete="off" placeholder="请输入电话" class="layui-input">
+									<input type="text" id="adminPhone" name="adminPhone" autocomplete="off" placeholder="请输入电话" class="layui-input">
 								</div>
 							</div>
-						
-
-							
-
-							
-
 							<div class="layui-form-item">
 								<label class="layui-form-label">角色</label>
-								<div class="layui-input-block">
+								<div class="layui-input-block" id="role">
 									<select name="interest" lay-filter="aihao">
 										<option value=""></option>
 										<option value="0">超级</option>
@@ -80,12 +70,10 @@
 										<option value="4">等等</option>
 									</select>
 								</div>
-							</div>
-
-							
-						
+							</div>					
 							<div class="layui-form-item">
-								<button class="layui-btn" lay-submit="" lay-filter="demo2">修改</button>
+								<button class="layui-btn" lay-submit="" lay-filter="formDemo">修改</button>
+								<button id="backBtn" class="layui-btn layui-btn-primary">取消</button>
 							</div>
 						</form>
 					</div>
@@ -100,49 +88,20 @@
 		var form = layui.form,
 			layer = layui.layer,
 			layedit = layui.layedit,
-			laydate = layui.laydate;
-
-		form.render();
-
-		//日期
-		laydate.render({
-			elem: '#date_hash'
-		});
-		laydate.render({
-			elem: '#date1_hash'
-		});
-
-		//创建一个编辑器
-		var editIndex = layedit.build('LAY_demo_editor_hash');
-
-		//自定义验证规则
-		form.verify({
-			title: function(value) {
-				if(value.length < 5) {
-					return '标题至少得5个字符啊';
-				}
-			},
-			pass: [/(.+){6,12}$/, '密码必须6到12位'],
-			content: function(value) {
-				layedit.sync(editIndex);
-			}
-		});
-
-		//监听指定开关
-		form.on('switch(switchTest_hash)', function(data) {
-			layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
-				offset: '6px'
-			});
-			layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
-		});
-
-		//监听提交
-		form.on('submit(demo1_hash)', function(data) {
+			laydate = layui.laydate;		
+		form.on('submit(formDemo)', function(data) {
 			layer.alert(JSON.stringify(data.field), {
 				title: '最终的提交信息'
-			})
-			return false;
-		});
+			});
+			var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+			window.parent.location.reload();
+	        parent.layer.close(index); //再执行关闭
+	        return true;
+		});	
+	 $("#backBtn").click(function () {
+	        var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引	        
+	        parent.layer.close(index); //再执行关闭
+	    });
 	});
 </script>
 

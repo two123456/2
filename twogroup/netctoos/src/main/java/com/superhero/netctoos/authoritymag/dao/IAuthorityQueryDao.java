@@ -15,7 +15,7 @@ public interface IAuthorityQueryDao {
 	 * @param page
 	 * @return
 	 */
-	List<AuthorityBean>listAuthorityByparams(@Param("params")Map params);
+	List<AuthorityBean>listAuthorityByparams(Map params);
 	
 	/**
 	 * 根据ID得到权限信息

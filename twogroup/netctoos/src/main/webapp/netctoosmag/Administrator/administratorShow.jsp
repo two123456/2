@@ -33,36 +33,39 @@
 							<legend>查看管理员资料</legend>
 						</fieldset>
 						<form class="layui-form layui-form-pane" action="">
+						<div>
+							 <input type="hidden" name="id" id="id" >					
+						</div>
 						<div class="layui-form-item">
 								<label class="layui-form-label">姓名</label>
-								<div class="layui-form-mid layui-word-aux" name="userName">&nbsp;张三</div>
-								
+								<div class="layui-input-block">
+									<input type="text" id="adminName" name="adminName" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+								</div>								
 							</div>
 							<div class="layui-form-item">
-								<label class="layui-form-label">账户名称</label>
-								
-								<div class="layui-form-mid layui-word-aux" name="accoName">&nbsp;zhangsan</div>
-							</div>
-								<div class="layui-form-item">
-								<label class="layui-form-label">性别</label>
-								
-								<div class="layui-form-mid layui-word-aux" name="gender">&nbsp;男</div>
-							</div>
+								<label class="layui-form-label">账务账号</label>
+								<div class="layui-input-block">
+									<input type="text" id="adminNum" name="adminNum"  autocomplete="off" class="layui-input" readonly="readonly">
+								</div>								
+							</div>							
 							<div class="layui-form-item">
 								<label class="layui-form-label">邮箱</label>
-								<div class="layui-form-mid layui-word-aux" name="email">&nbsp;zhangsan@qq.com</div>
+								<div class="layui-input-block">
+									<input type="text" id="adminMail" name="adminMail" autocomplete="off" placeholder="请输入邮箱" class="layui-input">
+								</div>
 							</div>
 							<div class="layui-form-item">
 								<label class="layui-form-label">电话</label>
-								<div class="layui-form-mid layui-word-aux" name="tell">&nbsp;13512341234</div>
+								<div class="layui-input-block">
+									<input type="text" id="adminPhone" name="adminPhone" autocomplete="off" placeholder="请输入电话" class="layui-input">
+								</div>
 							</div>
-						
-							<div class="layui-form-item">
+						<div class="layui-form-item">
 								<label class="layui-form-label">角色</label>
-								<div class="layui-form-mid layui-word-aux" name="role">&nbsp;超级管理员</div>
+								<div class="layui-input-block">
+									<input type="text" id="role" name="role" autocomplete="off"  class="layui-input">
+								</div>
 							</div>
-							
-					
 						</form>
 					</div>
 				</div>
@@ -79,15 +82,6 @@
 			laydate = layui.laydate;
 
 		form.render();
-
-		//日期
-		laydate.render({
-			elem: '#date_hash'
-		});
-		laydate.render({
-			elem: '#date1_hash'
-		});
-
 		//创建一个编辑器
 		var editIndex = layedit.build('LAY_demo_editor_hash');
 

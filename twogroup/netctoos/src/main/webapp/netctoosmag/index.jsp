@@ -119,7 +119,7 @@
 									</a>
 								</dd>
 								<dd>
-									<a href="">
+									<a data-url="Administrator/administratorMain" data-id="171" data-title="管理员管理系统" href="#" class="site-demo-active" data-type="tabAdd">
 										管理员管理系统
 									</a>
 								</dd>

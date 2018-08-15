@@ -1,10 +1,12 @@
 package com.superhero.netctoos.adminmag.queryservice;
-
 import java.util.Map;
-
 import com.superhero.netctoos.bean.AdminBean;
 import com.superhero.netctoos.bean.PageBean;
-
+/**
+ * 管理员读取 持久层接口
+ * @author Administrator
+ *
+ */
 public interface IAdminQueryService {
 	/**
 	 * 根据id查询管理员信息

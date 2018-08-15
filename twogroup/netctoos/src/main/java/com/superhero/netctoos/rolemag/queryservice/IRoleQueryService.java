@@ -15,7 +15,7 @@ public interface IRoleQueryService {
 	 * @param roleName 角色名称
 	 * @return 分页对象
 	 */
-	PageBean  getRole(Map params,PageBean page, String roleName);
+	PageBean  getRole(Map params,PageBean page);
 	/**
 	 * 根据角色ID得到角色信息
 	 * @param id 角色id

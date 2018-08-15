@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.superhero.netctoos.authoritymag.dao.IAuthorityQueryDao;
 import com.superhero.netctoos.authoritymag.mapper.AuthorityMapper;
 import com.superhero.netctoos.bean.AuthorityBean;
-import com.superhero.netctoos.bean.PageBean;
 /**
  * 权限管理读取 持久层实现类
  * @author Administrator

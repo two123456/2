@@ -1,12 +1,7 @@
 package com.superhero.netctoos.rolemag.dao;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-
-import com.superhero.netctoos.bean.AuthorityBean;
-import com.superhero.netctoos.bean.PageBean;
 import com.superhero.netctoos.bean.RoleBean;
 /**
  * 角色管理读取 持久层接口
@@ -20,7 +15,7 @@ public interface IRoleQueryDao {
 	 * @param roleName 角色名称
 	 * @return 分页对象
 	 */
-	List<RoleBean>listRoleByparams(@Param("params")Map params);
+	List<RoleBean>listRoleByparams(Map params);
 	
 	/**
 	 * 根据角色ID得到角色信息
