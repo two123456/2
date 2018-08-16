@@ -141,26 +141,21 @@ layui.config({
 				{
 					field: 'logName',
 					title: '管理员',
-					width: 200
+				
 				}, {
 					field: 'logTime',
 					title: '操作时间',
 					sort:true,
-					width: 200,
+					
 					toolbar: '#optTime'
 				}, {
 					field: 'serverIp',
 					title: 'IP',
-					width: 200
-				}, {
-					field: 'enter',
-					title: '操作内容',
 					
-					width: 300
 				}, {
 					field: 'operate',
 					title: '操作',
-					width: 350,
+					
 					toolbar: '#titleTpl'
 				}
 			]

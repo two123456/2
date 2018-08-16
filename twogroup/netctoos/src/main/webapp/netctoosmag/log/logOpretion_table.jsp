@@ -128,7 +128,11 @@ layui.config({
 		page: true, //开启分页
 		cols: [
 			[ //表头
-				
+				{
+					field: 'id',
+					title: 'id',
+					style:'display:none;'
+				},
 				{
 					field: 'dailyName',
 					title: '管理员',
