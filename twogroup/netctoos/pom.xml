@@ -47,6 +47,7 @@
 
 	
 	<dependencies>
+	
 	<!-- MQ -->
 	<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>

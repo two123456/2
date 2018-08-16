@@ -6,7 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.superhero.netctoos.enmu.OperateLogEnum;
+import com.superhero.netctoos.enmu.LoginEnum;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -16,5 +16,5 @@ public @interface MyLogin {
 	 * 0-登陆，1-退出
 	 * @return
 	 */
-	OperateLogEnum operateType();
+	LoginEnum operateType();
 }

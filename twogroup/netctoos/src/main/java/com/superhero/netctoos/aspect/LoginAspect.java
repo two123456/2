@@ -1,6 +1,5 @@
 package com.superhero.netctoos.aspect;
 
-import java.util.Arrays;
 import java.util.Date;
 
 import javax.jms.Connection;
@@ -19,30 +18,30 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-
 import com.superhero.netctoos.annotation.MyLogin;
-import com.superhero.netctoos.bean.LogDailyBean;
 import com.superhero.netctoos.bean.LogInBean;
-import com.superhero.netctoos.bean.LogInfoBean;
 
 @Aspect
 @Component
 public class LoginAspect {
+	
 	@Pointcut(value="@annotation(com.superhero.netctoos.annotation.MyLogin)")
 	private void pointcut() {}
-	@AfterReturning(pointcut="pointcut() && @annotation(myLogin) ",returning="rev")
-	public void afterReturningAdvice(JoinPoint jp,MyLogin myLogin,Object rev,HttpServletRequest request)throws Exception {
+	
+	
+	@AfterReturning(pointcut="pointcut() && @annotation(myLogin)",returning = "returnVal")
+	public void afterReturningAdvice(JoinPoint jp,Object returnVal,MyLogin myLogin)throws Exception {
 		
 		
 		
 		//设置操作日志数据 
 		String username=(String)SecurityUtils.getSubject().getPrincipal();
-		String serverIp=getRemoteHost(request);
+//		String serverIp=getRemoteHost(request);
 		LogInBean logIn=new LogInBean();
 		logIn.setLogName(username);
 		logIn.setLogTime(new Date());
 		logIn.setEnter(myLogin.operateType().getType());
-		logIn.setServerIp(serverIp);
+		logIn.setServerIp("");
 		//-----------------上传MQ-----------
 		final String TOPIC_PREFIX = "topic://";
 		// 定义连接信息

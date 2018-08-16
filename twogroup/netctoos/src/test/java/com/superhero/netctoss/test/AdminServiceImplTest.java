@@ -12,8 +12,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.superhero.netctoos.adminmag.handleservice.IAdminHandleService;
 import com.superhero.netctoos.adminmag.queryservice.IAdminQueryService;
+import com.superhero.netctoos.annotation.MyLog;
 import com.superhero.netctoos.bean.AdminBean;
 import com.superhero.netctoos.bean.PageBean;
+import com.superhero.netctoos.enmu.OperateLogEnum;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath:applicationContext.xml"})
@@ -28,7 +30,7 @@ public class AdminServiceImplTest {
 	@Test
 	public void saveAdmin() {
 		AdminBean admin = new AdminBean();
-		admin.setAdminName("李老四");
+		admin.setAdminName("李四");
 		admin.setAdminNum("jack");
 		admin.setAdminPwd("123");
 		admin.setAdminPhone("1354012619");
